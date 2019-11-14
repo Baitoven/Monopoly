@@ -26,6 +26,7 @@ public class PlateauDeJeu {
     public PlateauDeJeu(LinkedList<Joueur> j) {
         plateau = new ArrayList<Case>();
         joueurs = j;
+        initPlateau();
     }
 
     /**
