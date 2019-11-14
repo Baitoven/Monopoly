@@ -6,8 +6,8 @@ package org.centrale.projet.monopoly;
  */
 public class Gare extends Achetable {
 
-    public Gare(String nom, int prix) {
-        super(nom, prix);
+    public Gare(String nom) {
+        super(nom, 200);
     }
      
     public Gare(Gare g){

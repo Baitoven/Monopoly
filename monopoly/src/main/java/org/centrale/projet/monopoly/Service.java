@@ -10,8 +10,8 @@ public class Service extends Achetable {
 
     private int loyer;
 
-    public Service(String nom, int prix) {
-        super(nom, prix);
+    public Service(String nom) {
+        super(nom, 150);
     }
 
     public Service(Service s) {
