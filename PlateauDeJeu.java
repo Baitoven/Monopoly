@@ -9,23 +9,35 @@
  * @author fabra
  */
 public class PlateauDeJeu {
-    
+	/** La liste des cases du plateau de jeu */
     private ArrayList<Case> plateau ;
     
-    public PlateauDeJeu(ArrayList<Case)
+    public PlateauDeJeu(ArrayList<Case>)
     
-   
-     public Case avance(int d, Joueur j) {
+    /**
+    * Permet de faire avancer un joueur d'un certain nombre de cases.
+    * @param d Le nombre de cases dont le joueur va avancer
+    * @param j Le joueur que l'on veut faire avancer
+    * @return La case où va arriver le joueur
+    */
+    public Case avance(int d, Joueur j) {
         int index = (this.plateau.indexOf(j.getPosition()) + d) % 40;
         return this.plateau.get(index);
     }
 
+    /**
+    * Permet d'afficher le plateau
+    */
     public void affichePlateau() {
         for (Case c : this.plateau) {
             System.out.println(c.toString());
         }
     }
-
+	
+	/**
+	* Permet de dire si la partie est terminée ou non
+	* @return Booléen, vrai si la partie est finie, non sinon
+	*/
     public boolean finDePartie() {
         boolean r = true;
         if(this.jouers.size()>1){
@@ -33,7 +45,10 @@ public class PlateauDeJeu {
         }
         return r;
     }
-
+	
+	/**
+	* Permet d'afficher le Joueur
+	*/
     public void afficheJoueur() {
         String joueurString;
         for (joueur j : joueurs) {
@@ -50,6 +65,9 @@ public class PlateauDeJeu {
         }
     }
     
+    /**
+    * Permet de faire jouer tous les joueurs jusqu'à la fin de la partie
+    */
     public void tourDeJeuComplet(){
         boolean fin = finDePartie();
         int nbTour = 0;
