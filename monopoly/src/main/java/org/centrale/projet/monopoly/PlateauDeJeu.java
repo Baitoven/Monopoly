@@ -43,7 +43,7 @@ public class PlateauDeJeu {
                 plateau.add(c);
 
                 // Case 2
-                Carte ca = new Carte("Caisse de communauté");
+                Carte ca = new Carte();
                 plateau.add(ca);
 
                 // Case 3
@@ -51,7 +51,7 @@ public class PlateauDeJeu {
                 plateau.add(c);
 
                 // Case 4
-                ca = new Carte("Impôts sur le revenu");
+                ca = new Carte();
                 plateau.add(ca);
 
                 // Case 5
@@ -63,8 +63,8 @@ public class PlateauDeJeu {
                 plateau.add(c);
 
                 // Case 7
-                c = new Carte();
-                plateau.add(c);
+                ca = new Carte();
+                plateau.add(ca);
 
                 // Case 8
                 c = new Constructible("Rue de Courcelles", 100, 10, 50, 300, 60);
@@ -103,7 +103,7 @@ public class PlateauDeJeu {
                 plateau.add(c);
 
                 // Case 17
-                ca = new Carte("Caisse de communauté");
+                ca = new Carte();
                 plateau.add(ca);
 
                 // Case 18
@@ -123,8 +123,8 @@ public class PlateauDeJeu {
                 plateau.add(c);
 
                 // Case 22
-                c = new Carte();
-                plateau.add(c);
+                ca = new Carte();
+                plateau.add(ca);
 
                 // Case 23
                 c = new Constructible("Boulevard Malesherbes", 220, 22, 110, 660, 130);
@@ -167,7 +167,7 @@ public class PlateauDeJeu {
                 plateau.add(c);
 
                 // Case 33
-                ca = new Carte("Caisse de communauté");
+                ca = new Carte();
                 plateau.add(ca);
 
                 // Case 34
@@ -179,7 +179,7 @@ public class PlateauDeJeu {
                 plateau.add(g);
 
                 // Case 36
-                ca = new Carte("Chance");
+                ca = new Carte();
                 plateau.add(ca);
 
                 // Case 37
@@ -187,7 +187,7 @@ public class PlateauDeJeu {
                 plateau.add(c);
 
                 // Case 38
-                ca = new Carte("Taxe");
+                ca = new Carte();
                 plateau.add(ca);
 
                 // Case 39
@@ -201,7 +201,7 @@ public class PlateauDeJeu {
         int compteur = 0;
         for (Case c : plateau) {
             if (c instanceof Gare) {
-                Joueur proprio = ((Gare)c).getProprietaire();
+                Joueur proprio = ((Gare) c).getProprietaire();
                 if (proprio.equals(j)) {
                     compteur++;
                 }
@@ -254,7 +254,7 @@ public class PlateauDeJeu {
 
             for (Case c : this.plateau) {
                 if (c instanceof Achetable) { // On parcourt le plateau pour trouver les cases qui apartient au joueur j
-                    if (((Achetable)c).getProprietaire().equals(j)) {
+                    if (((Achetable) c).getProprietaire().equals(j)) {
                         joueurString += c.toString() + "\n";
                     }
                 }

@@ -4,9 +4,10 @@ package org.centrale.projet.monopoly;
  *
  * @author louis-alexandre
  */
-public class Constructible extends Achetable{
-    private int coefMaison; 
-    private int coefHotel; 
+public class Constructible extends Achetable {
+
+    private int coefMaison;
+    private int coefHotel;
     private int loyer;
     private int prixMaison;
     private int prixHotel;
@@ -34,8 +35,8 @@ public class Constructible extends Achetable{
         this.nbMaisons = c.nbMaisons;
         this.nbHotels = c.nbHotels;
     }
-    
-    public Constructible(){
+
+    public Constructible() {
         super();
         this.coefMaison = 0;
         this.coefHotel = 0;
@@ -59,7 +60,7 @@ public class Constructible extends Achetable{
     public void setCoefHotel(int coefHotel) {
         this.coefHotel = coefHotel;
     }
-    
+
     public int getLoyer() {
         return loyer;
     }
@@ -99,27 +100,24 @@ public class Constructible extends Achetable{
     public void setNbHotels(int nbHotels) {
         this.nbHotels = nbHotels;
     }
-    
+
     @Override
-    public String toString(){
-        if(this.getProprietaire() == null){
-            return this.getNom() + " (coût : " + this.getPrix() + "€) - sans proprietaire";  
-        }
-        else{
-            return this.getNom() + " (coût : " + this.getPrix() + "€) - propriétaire : " + this.getProprietaire().getNom() +
-                    ", " + this.getNbMaisons() + " maison(s), " + this.nbHotels + " hotel(s), loyer = " + this.getLoyer();  
+    public String toString() {
+        if (this.getProprietaire() == null) {
+            return this.getNom() + " (coût : " + this.getPrix() + "€) - sans proprietaire";
+        } else {
+            return this.getNom() + " (coût : " + this.getPrix() + "€) - propriétaire : " + this.getProprietaire().getNom()
+                    + ", " + this.getNbMaisons() + " maison(s), " + this.nbHotels + " hotel(s), loyer = " + this.getLoyer();
         }
     }
 
     @Override
     public int calculLoyer(PlateauDeJeu p) {
-        if(this.getProprietaire() == null){
+        if (this.getProprietaire() == null) {
             return 0;
-        }
-        else{
-            return this.getLoyer() + this.getCoefMaison()*this.getNbMaisons() + this.getCoefHotel()*this.getNbHotels();
+        } else {
+            return this.getLoyer() + this.getCoefMaison() * this.getNbMaisons() + this.getCoefHotel() * this.getNbHotels();
         }
     }
-    
-    
+
 }
