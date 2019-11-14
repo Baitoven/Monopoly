@@ -1,9 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package edu.centralenantes.projetmedevei2;
+package org.centrale.projet.monopoly;
 
 /**
  *
@@ -30,7 +25,7 @@ public class Constructible extends Achetable{
     }
 
     public Constructible(Constructible c) {
-        super(c.getNom(), c.getPrix(), c.getProprietaire());
+        super(c.getNom(), c.getPrix());
         this.coefMaison = c.coefMaison;
         this.coefHotel = c.coefHotel;
         this.loyer = c.loyer;

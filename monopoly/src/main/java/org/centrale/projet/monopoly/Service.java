@@ -1,9 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package edu.centralenantes.projetmedevei2;
+package org.centrale.projet.monopoly;
 
 import java.util.Random;
 
@@ -11,19 +6,20 @@ import java.util.Random;
  *
  * @author louis-alexandre
  */
-public class Service extends Achetable{
+public class Service extends Achetable {
+
     private int loyer;
 
     public Service(String nom, int prix) {
         super(nom, prix);
     }
-    
-    public Service(Service s){
+
+    public Service(Service s) {
         super(s.getNom(), s.getPrix());
         this.loyer = s.loyer;
     }
-    
-    public Service(){
+
+    public Service() {
         super();
         this.setNom("Électricité");
         this.loyer = 1000;
@@ -36,29 +32,25 @@ public class Service extends Achetable{
     public void setLoyer(int loyer) {
         this.loyer = loyer;
     }
-    
+
     @Override
-    public int calculLoyer(PlateauDeJeu p){
-        if(this.getProprietaire() == null){
+    public int calculLoyer(PlateauDeJeu p) {
+        if (this.getProprietaire() == null) {
             return 0;
-        }
-        else{
+        } else {
             Random generateurAleatoire = new Random();
             int x = generateurAleatoire.nextInt(11);
-            return this.loyer*(1+x);   
+            return this.loyer * (1 + x);
         }
     }
-    
+
     @Override
-    public String toString(){
-        if(this.getProprietaire() == null){
-            return this.getNom() + " (coût : " + this.getPrix() + "€) - sans proprietaire";  
+    public String toString() {
+        if (this.getProprietaire() == null) {
+            return this.getNom() + " (coût : " + this.getPrix() + "€) - sans proprietaire";
+        } else {
+            return this.getNom() + " (coût : " + this.getPrix() + "€) - propriétaire : " + this.getProprietaire().getNom()
+                    + ", loyer = " + this.getLoyer();
         }
-        else{
-            return this.getNom() + " (coût : " + this.getPrix() + "€) - propriétaire : " + this.getProprietaire().getNom() +
-                    ", loyer = " + this.getLoyer();  
-        }
-    }}
-    
-    
+    }
 }

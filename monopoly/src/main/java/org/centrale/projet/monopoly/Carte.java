@@ -1,9 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package edu.centralenantes.projetmedevei2;
+package org.centrale.projet.monopoly;
 
 import java.util.Random;
 
@@ -37,23 +32,23 @@ public class Carte extends NonAchetable{
     public void action(Joueur j){
         switch(type){
             case "Départ":{
-                Joueur.setCase(new Case("Départ"));
+                j.setPosition(new Depart());
                 break;
             }
             case "Prison":{
-                Joueur.setCase(new Case("Prison"));
+                j.setPosition(new Prison());
                 break;
             }
             case "Gain":{
                 Random generateurAleatoire = new Random();
                 int x = generateurAleatoire.nextInt(15000);
-                Joueur.setArgent(Joueur.getArgent()+5000+x);
+                j.setArgent(j.getArgent()+5000+x);
                 break;
             }
             case "Perte":{
                 Random generateurAleatoire = new Random();
                 int x = generateurAleatoire.nextInt(14000);
-                Joueur.setArgent(Joueur.getArgent()-(1000+x));
+                j.setArgent(j.getArgent()-(1000+x));
                 break;
             }
         }

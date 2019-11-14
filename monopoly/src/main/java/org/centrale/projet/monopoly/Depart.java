@@ -1,9 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package edu.centralenantes.projetmedevei2;
+package org.centrale.projet.monopoly;
 
 /**
  *
@@ -11,8 +6,8 @@ package edu.centralenantes.projetmedevei2;
  */
 public class Depart extends NonAchetable{
     
-    public void action(Joueur){
-        Joueur.setArgent(Joueur.getArgent()+20000);
+    public void action(Joueur j){
+        j.setArgent(j.getArgent()+20000);
     }
     
 }
