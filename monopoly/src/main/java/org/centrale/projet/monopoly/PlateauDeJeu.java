@@ -25,7 +25,7 @@ public class PlateauDeJeu {
      */
     public PlateauDeJeu(LinkedList<Joueur> j) {
         plateau = new ArrayList<Case>();
-        joueurs = new LinkedList<Joueur>(j);
+        joueurs = j;
     }
 
     /**
@@ -197,6 +197,11 @@ public class PlateauDeJeu {
         }
     }
 
+      /**
+       * Méthode qui compte le nombre de gares possédées par un joueur donné
+       * @return compteur nombre de gares possédées
+       * @param j Joueur dont il faut compter les gares
+       */
     public int nbGares(Joueur j) {
         int compteur = 0;
         for (Case c : plateau) {
