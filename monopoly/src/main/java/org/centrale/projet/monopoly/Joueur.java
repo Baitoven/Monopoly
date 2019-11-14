@@ -58,12 +58,13 @@ public class Joueur {
         nom = new String(value);
     }
     
-    public void aAcheteGare(){
-        nbGare = nbGare + 1;        
-    }
-    
-    public void aVenduGare(){
-        nbGare = nbGare - 1;
+    public int nbGare(){
+        int compteur = 0;
+        for(int i =0; i<possession.size();i++){
+            if ((possession.get(i)) instanceof Gare)
+                compteur++;
+        }
+        return(compteur)
     }
     
     public void gagneArgent(int value){
