@@ -13,13 +13,13 @@ public class Constructible extends Achetable{
     private int nbMaisons;
     private int nbHotels;
 
-    public Constructible(String nom, int prix, int coefMaison, int coefHotel, int loyer, int prixMaison, int prixHotel) {
+    public Constructible(String nom, int prix, int loyer, int coefMaison, int coefHotel, int prixMaison) {
         super(nom, prix);
         this.coefMaison = coefMaison;
         this.coefHotel = coefHotel;
         this.loyer = loyer;
         this.prixMaison = prixMaison;
-        this.prixHotel = prixHotel;
+        this.prixHotel = prixMaison;
         this.nbMaisons = 0;
         this.nbHotels = 0;
     }

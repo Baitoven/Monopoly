@@ -47,11 +47,11 @@ public class PlateauDeJeu {
                 plateau.add(ca);
 
                 // Case 3
-                Constructible c = new Constructible("Rue Lecourbe", 60, 6, 30, 180, 40);
+                c = new Constructible("Rue Lecourbe", 60, 6, 30, 180, 40);
                 plateau.add(c);
 
                 // Case 4
-                Carte ca = new Carte("Impôts sur le revenu");
+                ca = new Carte("Impôts sur le revenu");
                 plateau.add(ca);
 
                 // Case 5
@@ -59,19 +59,19 @@ public class PlateauDeJeu {
                 plateau.add(g);
 
                 // Case 6
-                Constructible c = new Constructible("Rue de Vaugirard", 100, 10, 50, 300, 60);
+                c = new Constructible("Rue de Vaugirard", 100, 10, 50, 300, 60);
                 plateau.add(c);
 
                 // Case 7
-                Chance ch = new Chance("Chance");
-                plateau.add(ch);
+                c = new Carte();
+                plateau.add(c);
 
                 // Case 8
-                Constructible c = new Constructible("Rue de Courcelles", 100, 10, 50, 300, 60);
+                c = new Constructible("Rue de Courcelles", 100, 10, 50, 300, 60);
                 plateau.add(c);
 
                 // Case 9
-                Constructible c = new Constructible("Avenue de la République", 120, 12, 60, 360, 70);
+                c = new Constructible("Avenue de la République", 120, 12, 60, 360, 70);
                 plateau.add(c);
 
                 // Case 10
@@ -79,7 +79,7 @@ public class PlateauDeJeu {
                 plateau.add(p);
 
                 // Case 11
-                Constructible c = new Constructible("Boulevard de la Villette", 140, 14, 70, 420, 80);
+                c = new Constructible("Boulevard de la Villette", 140, 14, 70, 420, 80);
                 plateau.add(c);
 
                 // Case 12
@@ -87,111 +87,111 @@ public class PlateauDeJeu {
                 plateau.add(s);
 
                 // Case 13
-                Constructible c = new Constructible("Avenue de Neuilly", 140, 14, 70, 420, 80);
+                c = new Constructible("Avenue de Neuilly", 140, 14, 70, 420, 80);
                 plateau.add(c);
 
                 // Case 14
-                Constructible c = new Constructible("Rue de Paradis", 160, 16, 80, 480, 100);
+                c = new Constructible("Rue de Paradis", 160, 16, 80, 480, 100);
                 plateau.add(c);
 
                 // Case 15
-                Gare g = new Gare("Lyon");
+                g = new Gare("Lyon");
                 plateau.add(g);
 
                 // Case 16
-                Constructible c = new Constructible("Avenue Mozart", 180, 18, 90, 540, 110);
+                c = new Constructible("Avenue Mozart", 180, 18, 90, 540, 110);
                 plateau.add(c);
 
                 // Case 17
-                Carte ca = new Carte("Caisse de communauté");
+                ca = new Carte("Caisse de communauté");
                 plateau.add(ca);
 
                 // Case 18
-                Constructible c = new Constructible("Boulevard Saint-Michel", 180, 18, 90, 540, 110);
+                c = new Constructible("Boulevard Saint-Michel", 180, 18, 90, 540, 110);
                 plateau.add(c);
 
                 // Case 19
-                Constructible c = new Constructible("Place Pigalle", 200, 20, 100, 600, 120);
+                c = new Constructible("Place Pigalle", 200, 20, 100, 600, 120);
                 plateau.add(c);
 
                 // Case 20
-                Parking pa = new Parking();
-                plateau.add(pa);
+                ca = new Carte();
+                plateau.add(ca);
 
                 // Case 21
-                Constructible c = new Constructible("Avenue de Matignon", 220, 22, 110, 660, 130);
+                c = new Constructible("Avenue de Matignon", 220, 22, 110, 660, 130);
                 plateau.add(c);
 
                 // Case 22
-                Carte ca = new Carte("Chance");
-                plateau.add(ca);
+                c = new Carte();
+                plateau.add(c);
 
                 // Case 23
-                Constructible c = new Constructible("Boulevard Malesherbes", 220, 22, 110, 660, 130);
+                c = new Constructible("Boulevard Malesherbes", 220, 22, 110, 660, 130);
                 plateau.add(c);
 
                 // Case 24
-                Constructible c = new Constructible("Avenue Henri-Martin", 240, 24, 120, 720, 140);
+                c = new Constructible("Avenue Henri-Martin", 240, 24, 120, 720, 140);
                 plateau.add(c);
 
                 // Case 25
-                Gare g = new Gare("Nord");
+                g = new Gare("Nord");
                 plateau.add(g);
 
                 // Case 26
-                Constructible c = new Constructible("Faubourg Saint-Honoré", 260, 26, 130, 780, 160);
+                c = new Constructible("Faubourg Saint-Honoré", 260, 26, 130, 780, 160);
                 plateau.add(c);
 
                 // Case 27
-                Constructible c = new Constructible("Place de la bourse", 260, 26, 130, 780, 160);
+                c = new Constructible("Place de la bourse", 260, 26, 130, 780, 160);
                 plateau.add(c);
 
                 // Case 28
-                Service s = new Service("Eau");
+                s = new Service("Eau");
                 plateau.add(s);
 
                 // Case 29
-                Constructible c = new Constructible("Rue La Fayette", 280, 28, 140, 840, 170);
+                c = new Constructible("Rue La Fayette", 280, 28, 140, 840, 170);
                 plateau.add(c);
 
                 // Case 30
-                Prison p = new Prison();
+                p = new Prison();
                 plateau.add(p);
 
                 // Case 31
-                Constructible c = new Constructible("Avenue de Breteuil", 300, 30, 150, 900, 180);
+                c = new Constructible("Avenue de Breteuil", 300, 30, 150, 900, 180);
                 plateau.add(c);
 
                 // Case 32
-                Constructible c = new Constructible("Avenue Foch", 300, 30, 150, 900, 180);
+                c = new Constructible("Avenue Foch", 300, 30, 150, 900, 180);
                 plateau.add(c);
 
                 // Case 33
-                Carte ca = new Carte("Caisse de communauté");
+                ca = new Carte("Caisse de communauté");
                 plateau.add(ca);
 
                 // Case 34
-                Constructible c = new Constructible("Boulevard des Capucines", 320, 32, 160, 960, 190);
+                c = new Constructible("Boulevard des Capucines", 320, 32, 160, 960, 190);
                 plateau.add(c);
 
                 // Case 35
-                Gare g = new Gare("Saint-Lazare");
+                g = new Gare("Saint-Lazare");
                 plateau.add(g);
 
                 // Case 36
-                Carte ca = new Carte("Chance");
+                ca = new Carte("Chance");
                 plateau.add(ca);
 
                 // Case 37
-                Constructible c = new Constructible("Avenue des Champs-Elysées", 350, 35, 175, 1050, 220);
+                c = new Constructible("Avenue des Champs-Elysées", 350, 35, 175, 1050, 220);
                 plateau.add(c);
 
                 // Case 38
-                Carte ca = new Carte("Taxe");
+                ca = new Carte("Taxe");
                 plateau.add(ca);
 
                 // Case 39
-                Constructible c = new Constructible("Rue de la paix", 400, 40, 200, 1200, 240);
+                c = new Constructible("Rue de la paix", 400, 40, 200, 1200, 240);
                 plateau.add(c);
             }
         }
@@ -201,7 +201,7 @@ public class PlateauDeJeu {
         int compteur = 0;
         for (Case c : plateau) {
             if (c instanceof Gare) {
-                Joueur proprio = c.getProprietaire();
+                Joueur proprio = ((Gare)c).getProprietaire();
                 if (proprio.equals(j)) {
                     compteur++;
                 }
@@ -238,7 +238,7 @@ public class PlateauDeJeu {
      */
     public boolean finDePartie() {
         boolean r = true;
-        if (this.jouers.size() > 1) {
+        if (this.joueurs.size() > 1) {
             r = false;
         }
         return r;
@@ -254,7 +254,7 @@ public class PlateauDeJeu {
 
             for (Case c : this.plateau) {
                 if (c instanceof Achetable) { // On parcourt le plateau pour trouver les cases qui apartient au joueur j
-                    if ((Achetable) c.getProprietaire().equals(j)) {
+                    if (((Achetable)c).getProprietaire().equals(j)) {
                         joueurString += c.toString() + "\n";
                     }
                 }

@@ -18,7 +18,7 @@ public class Jeu {
 
     public static void main(String[] args) {
         System.out.println("Bienvenue sur le plateau de jeu du Monopoly !\n Combien de joueurs seront parmis nous ?");
-        ArrayList<Joueur> listeJoueur = new ArrayList<>();
+        LinkedList<Joueur> listeJoueur = new LinkedList<>();
         PlateauDeJeu plateau = new PlateauDeJeu(listeJoueur);
 
         Scanner choixJoueur = new Scanner(System.in);
