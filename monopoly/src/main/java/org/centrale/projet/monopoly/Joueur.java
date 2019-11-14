@@ -1,20 +1,21 @@
 package org.centrale.projet.monopoly;
 
-import org.centrale.projet.monopoly.monopoly.master.NoMoreMoney;
+import java.util.ArrayList;
+import org.centrale.projet.monopoly.NoMoreMoney;
+
 
 public class Joueur {
 
     private Case position;
-    private Plateau refPlateau;
+    private PlateauDeJeu refPlateau;
     private int fortune;
     private String nom;
-    private LinkedList<Case> possession = new LinkedList<>();
+    private ArrayList<Case> possession = new ArrayList<>();
 
-    public Joueur(String nom, Plateau refPlateau) {
+    public Joueur(String nom, PlateauDeJeu refPlateau) {
         this.nom = new String(nom);
         fortune = 1000000;
         this.refPlateau = refPlateau;
-        nbGare = 0;
     }
 
     public Case getPosition() {
@@ -25,11 +26,11 @@ public class Joueur {
         this.position = position;
     }
 
-    public Plateau getRefPlateau() {
+    public PlateauDeJeu getRefPlateau() {
         return refPlateau;
     }
 
-    public void setRefPlateau(Plateau refPlateau) {
+    public void setRefPlateau(PlateauDeJeu refPlateau) {
         this.refPlateau = refPlateau;
     }
 
@@ -48,7 +49,7 @@ public class Joueur {
     public void setNom(String value) {
         nom = new String(value);
     }
-
+    
     public int nbGare() {
         int compteur = 0;
         for (int i = 0; i < possession.size(); i++) {
@@ -56,7 +57,7 @@ public class Joueur {
                 compteur++;
             }
         }
-        return (compteur)
+        return (compteur);
     }
 
     public void gagneArgent(int value) {
