@@ -29,11 +29,7 @@ public class Jeu {
             listeJoueur.add(new Joueur(nomJoueur, plateau));
         }
 
-        int i = 0;
-        while (!plateau.finDePartie()) {
-            plateau.tourDeJeu(listeJoueur.get(i % nbJoueur));
-            i++;
-        }
+        plateau.tourDeJeuComplet();
 
         System.out.println("Fin de partie");
     }
