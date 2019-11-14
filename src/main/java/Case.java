@@ -3,17 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.centralenantes.projetmedevei2;
 
 /**
  *
- * @author louis-alexandre
+ * @author Céline Balmes
  */
-public class NonAchetable extends Case{
-    
-   @Override
-    public String toString(){
-        return this.getNom();
-    }
+public class Case {
     
 }
