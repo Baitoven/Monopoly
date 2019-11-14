@@ -1,63 +1,70 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
 package org.centrale.projet.monopoly;
 
 import java.util.LinkedList;
 import java.util.Scanner;
-import java.util.ArrayList;
-import org.centrale.projet.monopoly.NoMoreMoney;
+import org.centrale.projet.monopoly.monopoly.master.NoMoreMoney;
 
-
+/**
+ *
+ * @author Julien
+ */
 public class Joueur {
-
     private Case position;
-    private PlateauDeJeu refPlateau;
-    private int argent;
+    private Plateau refPlateau;
+    private int fortune;
     private String nom;
-    private ArrayList<Case> possession = new ArrayList<>();
+    private LinkedList<Case> possession = new LinkedList<>();
     private boolean estEnPrison;
     private int tourEnPrison;
-
-    public Joueur(String nom, PlateauDeJeu refPlateau) {
+    
+    public Joueur(String nom, Plateau refPlateau){
         this.nom = new String(nom);
-        argent = 1000000;
+        fortune = 1000000;
         this.refPlateau = refPlateau;
         estEnPrison = false;
         tourEnPrison = 0;
     }
-
-    public Case getPosition() {
+    
+    public Case getPosition(){
         return position;
     }
-
-    public void setPosition(Case position) {
+    
+    public void setPosition(Case position){
         this.position = position;
     }
-
-    public PlateauDeJeu getRefPlateau() {
+    
+     public Plateau getRefPlateau(){
         return refPlateau;
     }
-
-    public void setRefPlateau(PlateauDeJeu refPlateau) {
+    
+    public void setRefPlateau(Plateau refPlateau){
         this.refPlateau = refPlateau;
     }
-
-    public int getArgent() {
-        return argent;
+    
+    public int getFortune(){
+        return fortune;
     }
-
-    public void setArgent(int value) {
-        argent = value;
+    
+    public void setFortune(int value){
+        fortune = value;
     }
-
-    public String getNom() {
-        return (nom);
+    
+    public String getNom(){
+        return(nom);
     }
-
-    public void setNom(String value) {
+    
+    public void setNom(String value){
         nom = new String(value);
     }
     
     public boolean getEstEnPrison(){
-      return(estEnPrison);
+        return(estEnPrison);
     }
     
     public void setEstEnPrison(boolean value){
@@ -71,49 +78,50 @@ public class Joueur {
     public void setTourEnPrison(int value){
         tourEnPrison = value;
     }
-
-    public int nbGare() {
+    
+    public int nbGare(){
         int compteur = 0;
-        for (int i = 0; i < possession.size(); i++) {
-            if ((possession.get(i)) instanceof Gare) {
+        for(int i =0; i<possession.size();i++){
+            if ((possession.get(i)) instanceof Gare)
                 compteur++;
-            }
         }
-        return (compteur);
+        return(compteur);
     }
 
     public boolean equals(Joueur j){
         return(j.getNom().equals(this.nom));
     }
+
+    public void gagneArgent(int value){
+        fortune = fortune + value;
+    }
     
-    public void gagneArgent(int value) {
-        argent = argent + value;
+    public void perdArgent(int value){
+        fortune = fortune + value;
     }
-
-    public void perdArgent(int value) {
-        argent = argent + value;
-    }
-
-    public void paiement(Joueur j, int paye) throws NoMoreMoney {
-        if (this.argent >= paye) {
+    
+    public void paiement(Joueur j, int paye) throws NoMoreMoney{
+        if (this.fortune >= paye){
             j.gagneArgent(paye);
             this.perdArgent(paye);
-        } else {
+        }
+        else {
             throw new NoMoreMoney("Plus d'argent");
         }
     }
-
-    public void acheter(Achetable c) throws NoMoreMoney {
-        if (this.argent >= c.getPrix()) {
-            this.perdArgent(c.getPrix());
-            c.setProprietaire(this);
-            possession.add((Case) c);
-        } else {
+    
+    public void acheter(Achetable c) throws NoMoreMoney{
+        if (this.fortune >= c.getPrix()){
+           this.perdArgent(c.getPrix());
+	c.setProprietaire(nom);
+        possession.add((Case)c);
+        }
+        else {
             throw new NoMoreMoney("Plus d'argent pour ça");
         }
     }
-
-    public void vendre(Achetable c) {
+    
+    public void vendre(Achetable c){
         this.gagneArgent(c.getPrix());
         possession.remove(c);
     }
@@ -157,70 +165,69 @@ public class Joueur {
         }
     }
     
-    public void tourDeJeu(int numeroDuTour) throws NoMoreMoney{
+    public void tourDeJeu(int numeroDuTour){
         int de = lanceLeDe();
         if(!estEnPrison){
-            this.position = refPlateau.avance(de,this);
+            this.position = refPlateau.avance(de,position);
             System.out.println("Le Joueur "+ nom+" est en "+position.getNom()+".");
             if(position instanceof Achetable){
-                if((((Achetable)position).getProprietaire()==null)&& de%2==1){
-                    acheter((Achetable)position);
+                if((position.getProprietaire()==null)&& de%2==1){
+                    achete(position);
                 }
-                if(((Achetable)position).getProprietaire()!=null && !((Achetable)position).getProprietaire().getNom().equals(nom)){
-                    paiement(((Achetable)position).getProprietaire(),((Achetable)position).calculLoyer(refPlateau));           
+                if(position.getProprietaire()!=null && !position.getProprietaire().getNom().equals(nom)){
+                    paiement(position.getProprietaire(),position.calculLoyer());           
                 }
-                else if(((Achetable)position).getProprietaire()!=null && position instanceof Constructible){
+                else if(position.getProprietaire()!=null){
                     System.out.println("Souhaites-tu construire des maisons ou un hôtel sur ton bien ?");
                     System.out.println("Il y a actuellement "
-                            +((Constructible)position).getNbMaisons()+" maison(s) et "
-                            +((Constructible)position).getNbHotels()+ "hôtel.");
-                    
+                            +position.getNbMaisons()+" maison(s) et "
+                            +position.getNbHotels()+ "hôtel.");
                     Scanner scanJoueur = new Scanner(System.in);
-                    if(((Constructible)position).getNbHotels()==0){
+                    if(position.getNbHotels()==0){
                         System.out.println("Souhaites-tu construire un hôtel ? (Oui/Non");
                         boolean repBool = reponseOuiNon();
                         if(repBool){
-                            if(((Constructible)position).getPrixMaison()*((Constructible)position).getNbMaisons() + argent - ((Constructible)position).getPrixHotel() <0){
+                            if(position.getPrixMaison()*position.getNbMaisons() + fortune - position.getPrixHotel() <0){
                                 System.out.println("Désolé, tu n'es pas assez riche pour ça.");
                             }
                             else{
-                                gagneArgent(((Constructible)position).getPrixMaison()*((Constructible)position).getNbMaisons());
-                                ((Constructible)position).setNbMaisons(0);
-                                perdArgent(((Constructible)position).getPrixHotel());
-                                ((Constructible)position).setNbHotels(1);
+                                gagneArgent(position.getPrixMaison()*position.getNbMaisons());
+                                position.setNbMaisons(0);
+                                perdArgent(position.getPrixHotel());
+                                position.setNbHotels(1);
                             }
                         }
                     }
-                    if(((Constructible)position).getNbHotels()==0 && ((Constructible)position).getNbMaisons()< 4){
+                    if(position.getNbHotels()==0 && position.getNbMaisons()< 4){
                         System.out.println("Combien de maison souhaites-tu construire ?");
-                        int constructible = 4-((Constructible)position).getNbMaisons();
+                        int constructible = 4-position.getNbMaisons();
                         System.out.println("tu peux en construire : " + constructible+".");
                         int repInt = reponseEntiere(constructible);
-                        if(argent - ((Constructible)position).getPrixMaison()*repInt <0){
+                        if(fortune - position.getPrixMaison()*repInt <0){
                             System.out.println("Désolé, tu n'es pas assez riche pour ça.");
                         }
                         else{                        
-                            perdArgent(((Constructible)position).getPrixMaison()*repInt);
-                            ((Constructible)position).setNbMaisons(((Constructible)position).getNbMaisons()+repInt);
+                            perdArgent(position.getPrixMaison()*repInt);
+                            position.setNbMaison(position.getNbMaison()+repInt);
                         }
                         
                     }
                 }
             }
             else if(position instanceof Prison){
-                tourEnPrison = 3;
+                tourEnPrison = numeroDuTour;
             }
             else if(position instanceof NonAchetable){
-                ((NonAchetable)position).action(this);
+                position.action(this);
             }
             
             
         }
         else{
-            tourEnPrison--;
-            if(tourEnPrison == 0){
+            if(numeroDuTour - tourEnPrison == 3){
                 estEnPrison = false;
             }
         }
     }
 }
+

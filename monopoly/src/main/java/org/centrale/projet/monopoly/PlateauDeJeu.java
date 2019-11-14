@@ -275,7 +275,7 @@ public class PlateauDeJeu {
             while (itJoueur.hasNext()) {
                 Joueur j = itJoueur.next();
                 try {
-                    j.tourDeJeu();
+                    j.tourDeJeu(nbTour);
                 } catch (NoMoreMoney m) {
                     itJoueur.remove();
                 }
