@@ -8,13 +8,13 @@ public class Joueur {
 
     private Case position;
     private PlateauDeJeu refPlateau;
-    private int fortune;
+    private int argent;
     private String nom;
     private ArrayList<Case> possession = new ArrayList<>();
 
     public Joueur(String nom, PlateauDeJeu refPlateau) {
         this.nom = new String(nom);
-        fortune = 1000000;
+        argent = 1000000;
         this.refPlateau = refPlateau;
     }
 
@@ -34,12 +34,12 @@ public class Joueur {
         this.refPlateau = refPlateau;
     }
 
-    public int getFortune() {
-        return fortune;
+    public int getArgent() {
+        return argent;
     }
 
-    public void setFortune(int value) {
-        fortune = value;
+    public void setArgent(int value) {
+        argent = value;
     }
 
     public String getNom() {
@@ -61,15 +61,15 @@ public class Joueur {
     }
 
     public void gagneArgent(int value) {
-        fortune = fortune + value;
+        argent = argent + value;
     }
 
     public void perdArgent(int value) {
-        fortune = fortune + value;
+        argent = argent + value;
     }
 
     public void paiement(Joueur j, int paye) throws NoMoreMoney {
-        if (this.fortune >= paye) {
+        if (this.argent >= paye) {
             j.gagneArgent(paye);
             this.perdArgent(paye);
         } else {
@@ -78,9 +78,9 @@ public class Joueur {
     }
 
     public void acheter(Achetable c) throws NoMoreMoney {
-        if (this.fortune >= c.getPrix()) {
+        if (this.argent >= c.getPrix()) {
             this.perdArgent(c.getPrix());
-            c.setProprietaire(nom);
+            c.setProprietaire(this);
             possession.add((Case) c);
         } else {
             throw new NoMoreMoney("Plus d'argent pour ça");
